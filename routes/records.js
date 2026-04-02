@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../db');
 const checkRole = require('../middleware/auth');
 
-// CREATE RECORD (ONLY ADMIN)
+
 router.post('/', checkRole(['admin']), (req, res) => {
     const { amount, type, category, date, notes, user_id } = req.body;
 
@@ -23,7 +23,7 @@ router.post('/', checkRole(['admin']), (req, res) => {
     });
 });
 
-// GET RECORDS (ADMIN + ANALYST)
+
 router.get('/', checkRole(['admin', 'analyst']), (req, res) => {
     let query = "SELECT * FROM records WHERE 1=1";
     const values = [];
@@ -50,7 +50,7 @@ router.get('/', checkRole(['admin', 'analyst']), (req, res) => {
     });
 });
 
-// UPDATE RECORD (ONLY ADMIN)
+
 router.put('/:id', checkRole(['admin']), (req, res) => {
     const { amount, type, category, date, notes } = req.body;
 
@@ -67,7 +67,7 @@ router.put('/:id', checkRole(['admin']), (req, res) => {
     });
 });
 
-// DELETE RECORD (ONLY ADMIN)
+
 router.delete('/:id', checkRole(['admin']), (req, res) => {
     db.query("DELETE FROM records WHERE id = ?", [req.params.id], (err) => {
         if (err) return res.status(500).json({ error: err.message });

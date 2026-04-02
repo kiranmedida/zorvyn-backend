@@ -1,19 +1,23 @@
 const mysql = require('mysql2');
 
-// create connection
-const db = mysql.createConnection({
-    host: 'localhost',
+const db = mysql.createPool({
+    host: 'interchange.proxy.rlwy.net',
     user: 'root',
-    password: 'virat@9009',
-    database: 'zorvyn_db'
+    password: 'iHpCpxMuKgrRkwwTkjofmsxlDnsAuSnJ',
+    database: 'railway',
+    port: 59060,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
-// connect to database
-db.connect((err) => {
+
+db.getConnection((err, connection) => {
     if (err) {
         console.error('Database connection failed:', err);
     } else {
-        console.log('Connected to MySQL database');
+        console.log('Connected to Railway MySQL');
+        connection.release();
     }
 });
 

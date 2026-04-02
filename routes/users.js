@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../db');
 const checkRole = require('../middleware/auth');
 
-// CREATE USER (ONLY ADMIN)
+
 router.post('/', checkRole(['admin']), (req, res) => {
     const { name, role } = req.body;
 
@@ -23,7 +23,7 @@ router.post('/', checkRole(['admin']), (req, res) => {
     });
 });
 
-// GET USERS (ADMIN + ANALYST)
+
 router.get('/', checkRole(['admin', 'analyst']), (req, res) => {
     db.query("SELECT * FROM users", (err, results) => {
         if (err) return res.status(500).json({ error: err.message });

@@ -3,7 +3,6 @@ const router = express.Router();
 const db = require('../db');
 const checkRole = require('../middleware/auth');
 
-// DASHBOARD SUMMARY (ADMIN + ANALYST)
 router.get('/summary', checkRole(['admin', 'analyst']), (req, res) => {
     const summary = {};
 

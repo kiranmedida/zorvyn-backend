@@ -8,11 +8,24 @@ The system is built using Node.js and Express, with MySQL as the database, and d
 
 ---
 
+## 🌐 Live API
+
+Base URL:
+https://your-render-url.onrender.com
+
+Example:
+GET /users
+https://your-render-url.onrender.com/users
+
+---
+
 ## 🚀 Tech Stack
 
 * **Backend:** Node.js (Express)
 * **Database:** MySQL
-* **API Testing:** Thunder Client (VS Code)
+* **Database Hosting:** Railway
+* **Deployment:** Render
+* **API Testing:** Thunder Client / Postman
 
 ---
 
@@ -140,9 +153,9 @@ npm install
 
 3. Configure MySQL:
 
-* Create database: `zorvyn_db`
+* Create database (or use Railway DB)
 * Create required tables
-* Update credentials in `db.js`
+* Update credentials in `db.js` OR use environment variables
 
 4. Run the server:
 
@@ -158,8 +171,12 @@ node server.js
 
 * Used Express for simplicity and flexibility in API development
 * Chose MySQL for structured data and real-world database experience
+* Used Railway for cloud database hosting
+* Deployed backend on Render for real-world accessibility
 * Implemented middleware-based role control for clean and reusable authorization logic
 * Designed modular architecture (routes, middleware, DB separation)
+
+The system is designed to simulate real-world backend architecture with scalable patterns such as modular routing, middleware-based authorization, and relational data modeling.
 
 ---
 
@@ -167,7 +184,7 @@ node server.js
 
 * Did not implement full authentication (JWT/session) to keep focus on core backend logic
 * Used header-based role simulation for simplicity
-* No deployment included (runs locally)
+* Focused on clarity and correctness over advanced features
 
 ---
 
@@ -175,21 +192,23 @@ node server.js
 
 * No authentication system
 * No pagination for large datasets
-* No deployment (local server only)
+* Basic error handling (can be improved further)
 
 ---
 
 ## 🔮 Future Improvements
 
 * Add JWT authentication
-* Deploy to cloud platforms (AWS, Render)
+* Improve validation and error handling
 * Add pagination and search
-* Improve logging and error handling
+* Enhance logging and monitoring
 
 ---
 
 ## 🙌 Conclusion
 
-This project demonstrates backend engineering fundamentals including API design, database integration, business logic implementation, and access control. It is designed to be clean, maintainable, and extensible for real-world applications.
+This project demonstrates backend engineering fundamentals including API design, database integration, business logic implementation, and access control.
+
+It is structured to be clean, maintainable, and easily extendable for real-world applications.
 
 ---
